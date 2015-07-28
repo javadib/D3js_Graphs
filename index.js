@@ -9,9 +9,18 @@ JSON_FILE_NAME = "Dataset.json";
 CAN_SHOW_ERROR = true;
 NODE_ID_NOT_FOUND_ERROR = "You can set NODE_ID_NOT_FOUND_ERROR message in index.js and also enable/disable it.";
 
-function nodeClickCallback(node){
-	alert("Id: " + node.id);
-	window.external.ExternalMethod(node.id);
+function nodeClickCallback(e) {
+    e = e || window.event;
+    var target = e.target || e.srcElement;
+    if (target.id === "")
+	{
+		if(CAN_SHOW_ERROR) alert(NODE_ID_NOT_FOUND_ERROR);
+		
+		return;
+	}
+		
+	alert("Id: " + target.id);
+	//window.external.ExternalMethod(target.id);
 }
 
 var force = d3.layout.force()
@@ -23,18 +32,7 @@ var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height);
 	
-document.addEventListener('click', function(e) {
-    e = e || window.event;
-    var target = e.target || e.srcElement;
-        if (target.id === "")
-		{
-			if(CAN_SHOW_ERROR) alert(NODE_ID_NOT_FOUND_ERROR);
-			
-			return;
-		}
-		
-		nodeClickCallback(target);
-}, false);
+document.addEventListener('click', nodeClickCallback, false);
 
 d3.json(JSON_FILE_NAME, function(error, graph) {
   force
