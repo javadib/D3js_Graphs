@@ -2,10 +2,7 @@
 
 D3js graphs and custom features
 
-
-
 #### Network Chart
-
-* Click event for nodes.
-* Custom message in empty space.
-* Callback for click event.
+* Click event for nodes
+* Custom message in empty space
+* Callback for click event
