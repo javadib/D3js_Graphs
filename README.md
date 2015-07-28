@@ -3,5 +3,7 @@
 D3js graphs and custom features
 
 
-#Graphs
-Click event for network chart
+#Network Cgart
+Click event for nodes
+Custom message in empty space
+Callback for click event
