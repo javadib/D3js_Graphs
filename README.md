@@ -4,7 +4,7 @@ D3js graphs and custom features
 
 
 
-#### Network Chart ####
+#### Network Chart
 
 * Click event for nodes.
 * Custom message in empty space.
